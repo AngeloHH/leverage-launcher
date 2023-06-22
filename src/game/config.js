@@ -1,11 +1,9 @@
 import { check_sha1 } from "./files"
-
-const { execSync } = require('child_process')
-const path = require('path')
-const os = require("os")
-const fs = require("fs")
-const crypto = require('crypto')
-const AdmZip  = require('adm-zip')
+import { execSync } from 'child_process'
+import path from "path"
+import * as os from "os"
+import fs from "fs"
+import AdmZip from "adm-zip"
 
 const default_jvm = [
   {
@@ -21,7 +19,8 @@ const default_jvm = [
 
 const AUTH_URL = "https://authserver.mojang.com/authenticate"
 const VERSIONS = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
-const SETTINGS = 'leverage_settings.json'
+const SETTINGS = "leverage_settings.json"
+const TEXTURES = "https://sessionserver.mojang.com/session/minecraft/profile/"
 
 function java_linux_path() {
   // The function javaLinuxPath retrieves the path to
@@ -65,6 +64,9 @@ function get_settings() {
 }
 
 function set_option(key, value) {
+  /**
+   * The function takes a key and value as parameters
+   * and modifies the specified key in the settings. */
   let data = get_settings(); data[key] = value
   let str = JSON.stringify(data, null, 2)
   fs.writeFileSync(SETTINGS, str); return data
@@ -408,4 +410,4 @@ class ArgsManager {
   }
 }
 
-export {get_system_info, set_option, get_settings, unzip_file, VersionManager, RulesManager, LibraryManager, ArgsManager, VERSIONS}
+export {get_system_info, set_option, get_settings, unzip_file, VersionManager, RulesManager, LibraryManager, ArgsManager, VERSIONS, TEXTURES}

@@ -1,5 +1,5 @@
 {
-  "name": "electron-example",
+  "name": "leverage-launcher",
   "version": "1.0.0",
   "description": "",
   "main": "dist/main.js",
@@ -8,8 +8,8 @@
     "build": "babel src --out-dir dist; electron-builder"
   },
   "build": {
-    "appId": "com.example.app",
-    "productName": "My Electron App",
+    "appId": "com.leverage.launcher",
+    "productName": "Leverage Launcher",
     "directories": {
       "output": "out"
     },
@@ -18,7 +18,7 @@
       "public/**"
     ]
   },
-  "author": "",
+  "author": "AngeloHH",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.21.5",
