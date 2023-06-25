@@ -33,17 +33,22 @@ function get_system_info() {
   // Retrieves system information.
   let os_name = (os.platform() === 'win32')? 'windows' : os.platform()
   const systemInfo = {
-    os_name: os_name,
     home_path: path.join(os.homedir(), '.minecraft'),
     java_path: process.env.JAVA_HOME || '',
     arch: 'x' + process.arch.slice(-2),
-    release: os.release()
+    release: os.release(), os_name: os.platform(),
   }
 
   if (systemInfo.os_name === 'linux') {
     // For Linux systems, retrieve the Java
     // path using a specific function
     systemInfo.java_path = java_linux_path()
+  }
+
+  if (systemInfo.os_name === 'win32') {
+    let app_data = path.join(os.homedir(), 'AppData', 'Roaming')
+    let win_path = path.join(app_data, '.minecraft')
+    systemInfo.os_name = 'windows'; systemInfo.home_path = win_path
   }
 
   return systemInfo
