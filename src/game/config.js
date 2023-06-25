@@ -22,27 +22,18 @@ const VERSIONS = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
 const SETTINGS = "leverage_settings.json"
 const TEXTURES = "https://sessionserver.mojang.com/session/minecraft/profile/"
 
-function java_linux_path() {
-  // The function javaLinuxPath retrieves the path to
-  // the Java installation on a Linux system.
-  const java_path = execSync('which java').toString()
-  return path.resolve(java_path.trim())
-}
-
 function get_system_info() {
   // Retrieves system information.
-  let os_name = (os.platform() === 'win32')? 'windows' : os.platform()
+  let os_name = os.platform()
+  let command = (os_name === 'win32')? 'where' : 'which'
+  let java_path = execSync(command + ' java')
+  os_name = (os_name === 'win32')? 'windows' : os_name
+  java_path = path.resolve(java_path.trim().toString())
+
   const systemInfo = {
     home_path: path.join(os.homedir(), '.minecraft'),
-    java_path: process.env.JAVA_HOME || '',
-    arch: 'x' + process.arch.slice(-2),
+    java_path: java_path, arch: 'x' + process.arch.slice(-2),
     release: os.release(), os_name: os.platform(),
-  }
-
-  if (systemInfo.os_name === 'linux') {
-    // For Linux systems, retrieve the Java
-    // path using a specific function
-    systemInfo.java_path = java_linux_path()
   }
 
   if (systemInfo.os_name === 'win32') {
