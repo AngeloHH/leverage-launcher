@@ -299,14 +299,22 @@ class LibraryManager {
     }
     return corrupted
   }
+  
   join_libraries (sep, base_path) {
     /** Concatenate the libraries into a string */
     let libraries = this.get_libraries()
     const get_path = (library) => (
       path.join(base_path, library.path)
     )
+    // Remove native libraries from the libraries list.
     libraries = libraries.map(get_path)
-    return libraries.join(sep);
+    let natives = this.get_libraries(true)
+    natives.map(get_path).forEach(lib => {
+      libraries.splice(libraries.indexOf(lib) , 1)
+    })
+    // Remove duplicates while maintaining the original 
+    // order.
+    return [... new Set(libraries)].join(sep);
   }
 
   async download_libraries (url) {
