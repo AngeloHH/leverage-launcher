@@ -78,19 +78,16 @@ function unzip_file(file_path, destination = '', omitted = []) {
   let file_list = []
 
   zip_entries.forEach((zip_entry) => {
-    let file_name = zip_entry.entryName, is_excluded = false
-    let dest_path = destination + path.sep + file_name
-
+    let file_name = zip_entry.entryName, dest_path = destination
+    dest_path = path.join(dest_path, file_name).replace(/\//g, '\\')
     // Check if the file is omitted
-    omitted.forEach((key) => {if (file_name.includes(key)) is_excluded = true})
+    let is_excluded = omitted.some((key) => file_name.includes(key))
+    let is_dir = zip_entry.isDirectory, exist = fs.existsSync(dest_path)
 
-    if (!zip_entry.entryName.includes(omitted)) {
-      if (!zip_entry.isDirectory) {
-        fs.writeFileSync(dest_path, zip_entry.getData())
-        file_list.push(dest_path)
-      } else if (zip_entry.isDirectory && !fs.existsSync(dest_path)) {
-        fs.mkdirSync(dest_path)
-      }
+    if (!is_excluded && is_dir && !exist) fs.mkdirSync(dest_path)
+    else if (!is_excluded && !is_dir) {
+      let data = zip_entry.getData()
+      fs.writeFileSync(dest_path, data); file_list.push(dest_path)
     }
   })
   return file_list
