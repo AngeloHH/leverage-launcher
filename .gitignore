@@ -3,6 +3,8 @@
 !/.gitattributes
 !/.gitignore
 !/NOTICE.md
+!/README.md
+!/SERVER.md
 !/build.gradle.kts
 !/settings.gradle.kts
 !/gradlew
