@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" shape-rendering="crispEdges" role="img" aria-labelledby="title">
+<title id="title">Add</title>
+    <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd"
+          d="M0 2H8V8H14V16H0V2ZM2 4V8H6V4H2ZM2 10V14H6V10H2ZM8 10V14H12V10H8Z"/>
+    <path fill="#FFFFFF" d="M12 0H14V2H16V4H14V6H12V4H10V2H12V0Z"/>
+</svg>

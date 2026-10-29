@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "channels": [
+    {
+      "name": "stable",
+      "latestVersion": "0.2.0",
+      "releases": [
+        {
+          "version": "0.2.0",
+          "sha1": "1111111111111111111111111111111111111111",
+          "downloadUrl": "https://leverage.example/downloads/leverage-0.2.0.jar",
+          "releaseNotesUrl": "https://leverage.example/releases/0.2.0",
+          "allowLaunch": true
+        },
+        {
+          "version": "0.1.0",
+          "sha1": "2222222222222222222222222222222222222222",
+          "downloadUrl": "https://leverage.example/downloads/leverage-0.1.0.jar",
+          "releaseNotesUrl": "https://leverage.example/releases/0.1.0",
+          "allowLaunch": false
+        }
+      ]
+    }
+  ]
+}

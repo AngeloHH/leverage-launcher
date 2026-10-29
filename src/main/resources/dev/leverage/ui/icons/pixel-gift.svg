@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" shape-rendering="crispEdges" role="img" aria-labelledby="title">
+<title id="title">Gift</title>
+    <g transform="translate(4 4)" fill="#FFFFFF">
+        <path d="M3 0H7V2H5V4H3V0ZM9 0H13V4H11V2H9V0ZM7 2H9V4H7V2Z"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 4H16V10H15V16H1V10H0V4ZM2 6V8H7V6H2ZM9 6V8H14V6H9ZM3 10V14H7V10H3ZM9 10V14H13V10H9Z"/>
+    </g>
+</svg>

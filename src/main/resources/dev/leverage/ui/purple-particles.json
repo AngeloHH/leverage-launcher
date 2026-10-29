@@ -1,0 +1,10 @@
+{
+  "reference": "docs/references/particles/purple-button-reference.png",
+  "referenceSha256": "7f0c5b2433cddfdd876ea82a9f7303a549781de18abb8d66213d206518f03149",
+  "unobstructedSample": { "x": 60, "y": 4, "width": 17, "height": 9, "background": "#171615" },
+  "note": "Soft square edge inferred from the visible part of the still. Original alpha and motion are not known.",
+  "colors": ["#EC8EDA", "#D984D9", "#F28ADF"],
+  "edgeProfile": [0.012, 0.09, 0.36, 1, 1, 1, 0.36, 0.09, 0.012],
+  "coreDiameter": 6,
+  "opacity": 0.8
+}

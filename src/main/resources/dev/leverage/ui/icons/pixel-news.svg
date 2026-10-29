@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" shape-rendering="crispEdges" role="img" aria-labelledby="title">
+<title id="title">News</title>
+    <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd"
+          d="M8 2H16V16H0V2H2V12H8V2ZM10 4V6H14V4H10ZM10 8V10H14V8H10ZM2 12V14H14V12H2Z"/>
+    <path fill="#FFFFFF" d="M4 0H6V8H4V0ZM4 10H6V12H4V10Z"/>
+</svg>

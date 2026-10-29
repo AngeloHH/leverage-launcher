@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "policies": [
+    {
+      "id": "survival-26.3-1",
+      "server": "survival",
+      "version": "26.3",
+      "allowed": [
+        {
+          "name": "Allowed example",
+          "sha1": "1111111111111111111111111111111111111111",
+          "required": false,
+          "reason": ""
+        }
+      ],
+      "blocked": [
+        {
+          "name": "Blocked example",
+          "sha1": "2222222222222222222222222222222222222222",
+          "required": false,
+          "reason": "This mod is not allowed on the server."
+        }
+      ]
+    }
+  ]
+}

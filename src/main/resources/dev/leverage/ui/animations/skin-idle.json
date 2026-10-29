@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "idle": {
+    "baseline": "breathing",
+    "baselinePeriod": [4.5, 6.7],
+    "baselinePhase": [0, 6.283185307179586],
+    "firstDelay": [4, 16],
+    "pause": [8, 14],
+    "pauseJitter": [0.7, 1.3]
+  },
+  "clips": [
+    {
+      "id": "breathing", "duration": 5, "loop": true,
+      "tracks": [
+        { "channel": "rightArm.roll", "sine": { "amplitude": -1.8, "cycles": 1 } },
+        { "channel": "leftArm.roll", "sine": { "amplitude": 1.8, "cycles": 1 } },
+        { "channel": "rightArm.pitch", "sine": { "amplitude": 0.6, "cycles": 1, "phase": 1.5707963267948966 } },
+        { "channel": "leftArm.pitch", "sine": { "amplitude": 0.6, "cycles": 1, "phase": 1.5707963267948966 } }
+      ]
+    },
+    {
+      "id": "look", "duration": 6, "durationRange": [5, 7],
+      "parameters": { "gaze": 20 }, "randomParameters": { "gaze": [16, 24] },
+      "tracks": [
+        { "channel": "head.yaw", "scaleParameter": "gaze", "sine": { "amplitude": -1, "cycles": 1 }, "envelope": { "in": 1.2, "out": 1.2 } },
+        { "channel": "head.pitch", "sine": { "amplitude": -1.5, "cycles": 0.5 }, "envelope": { "in": 1.2, "out": 1.2 } }
+      ]
+    },
+    {
+      "id": "wave", "duration": 2.2,
+      "parameters": { "gaze": 20 }, "randomParameters": { "gaze": [16, 24] },
+      "tracks": [
+        { "channel": "rightArm.pitch", "keyframes": [[0, -158]], "envelope": { "in": 0.4, "out": 0.5 } },
+        { "channel": "rightArm.roll", "keyframes": [[0, 24]], "sine": { "amplitude": -11, "cycles": 4.18, "phase": -4.775220833456485 }, "envelope": { "in": 0.4, "out": 0.5 } },
+        { "channel": "head.yaw", "mirror": false, "keyframes": [[0, -9.6]], "envelope": { "in": 0.4, "out": 0.5 } },
+        { "channel": "head.pitch", "keyframes": [[0, -2]], "envelope": { "in": 0.4, "out": 0.5 } }
+      ]
+    },
+    {
+      "id": "kick", "duration": 1.4,
+      "parameters": { "gaze": 20 }, "randomParameters": { "gaze": [16, 24] },
+      "tracks": [
+        { "channel": "rightLeg.pitch", "keyframes": [[0, 0], [0.55, 40], [0.73, -40], [0.85, -34], [1.4, 0]] }
+      ]
+    },
+    {
+      "id": "attention", "duration": 2.8,
+      "parameters": { "gaze": 20 }, "randomParameters": { "gaze": [16, 24] },
+      "tracks": [
+        { "channel": "rightArm.pitch", "keyframes": [[0, -6]], "envelope": { "in": 0.35, "out": 0.45 } },
+        { "channel": "leftArm.pitch", "keyframes": [[0, -6]], "envelope": { "in": 0.35, "out": 0.45 } },
+        { "channel": "rightArm.roll", "keyframes": [[0, -156]], "sine": { "amplitude": -12, "cycles": 5.32, "phase": -4.178318229274425 }, "envelope": { "in": 0.35, "out": 0.45 } },
+        { "channel": "leftArm.roll", "keyframes": [[0, 156]], "sine": { "amplitude": 12, "cycles": 5.32, "phase": -4.178318229274425 }, "envelope": { "in": 0.35, "out": 0.45 } },
+        { "channel": "head.yaw", "mirror": false, "keyframes": [[0, -10]], "envelope": { "in": 0.35, "out": 0.45 } },
+        { "channel": "head.pitch", "keyframes": [[0, -3]], "envelope": { "in": 0.35, "out": 0.45 } }
+      ]
+    }
+  ]
+}

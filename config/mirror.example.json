@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "output": "mirror",
+  "versions": [
+    {
+      "id": "26.3",
+      "client": true,
+      "server": true,
+      "assets": true
+    }
+  ],
+  "platforms": [
+    "windows-x64",
+    "linux",
+    "mac-os",
+    "mac-os-arm64"
+  ],
+  "java": {
+    "enabled": true
+  }
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" shape-rendering="crispEdges" role="img" aria-labelledby="title">
+<title id="title">Sign</title>
+    <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd"
+          d="M0 0H24V18H20V24H18V18H6V24H4V18H0V0ZM5 7V10H8V7H5ZM10 7V10H13V7H10ZM15 7V10H18V7H15Z"/>
+</svg>
