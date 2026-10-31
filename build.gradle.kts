@@ -142,6 +142,9 @@ tasks.withType<JavaCompile>().configureEach {
 
 tasks.test {
     useJUnitPlatform()
+    maxHeapSize = "2g"
+    maxParallelForks = 1
+    forkEvery = 10
 }
 
 tasks.shadowJar {

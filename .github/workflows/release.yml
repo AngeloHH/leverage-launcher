@@ -1,0 +1,62 @@
+name: Release Leverage Launcher
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag to publish (for example, v0.1.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: github.event_name != 'workflow_dispatch' || startsWith(inputs.version, 'v')
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build executable JAR
+        timeout-minutes: 12
+        env:
+          JAVA_TOOL_OPTIONS: >-
+            -Dsun.net.client.defaultConnectTimeout=15000
+            -Dsun.net.client.defaultReadTimeout=30000
+        run: bash ./gradlew --no-daemon --console=plain --info --stacktrace clean shadowJar
+
+      - name: Save compiled JAR
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: leverage-jar
+          path: build/libs/leverage.jar
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.version || github.ref_name }}
+        run: |
+          gh release create "$RELEASE_TAG" \
+            build/libs/leverage.jar \
+            --title "$RELEASE_TAG" \
+            --generate-notes \
+            --target "$GITHUB_SHA"
